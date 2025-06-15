@@ -39,7 +39,7 @@ keymap('n', 'N', 'Nzzzv', opts) -- N: Previous match, center.
 keymap('n', '<M-Up>', ':resize -2<CR>', opts) -- Alt+Up: Decrease window height.
 keymap('n', '<M-Down>', ':resize +2<CR>', opts) -- Alt+Down: Increase window height.
 keymap('n', '<M-Left>', ':vertical resize -2<CR>', opts) -- Alt+Left: Decrease window width.
-keymap('n', '<M-S-Right>', ':vertical resize +2<CR>', opts) -- Alt+Shift+Right: Increase window width.
+keymap('n', '<M-Right>', ':vertical resize +2<CR>', opts) -- Alt+Right: Increase window width.
 
 -- Buffer management
 keymap('n', '<Tab>', ':bnext<CR>', opts) -- Tab: Next buffer.
