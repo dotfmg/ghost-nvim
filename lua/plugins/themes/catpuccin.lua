@@ -12,6 +12,6 @@ return {
       term_colors = true, -- Set Neovim terminal colors to match.
       -- Other options (styles, overrides, integrations) use defaults.
     }
-    vim.cmd [[colorscheme catppuccin]] -- Apply the theme.
+    -- vim.cmd [[colorscheme catppuccin]] -- Apply the theme.
   end,
 }
