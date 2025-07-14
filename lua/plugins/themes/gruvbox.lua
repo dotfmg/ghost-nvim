@@ -6,13 +6,13 @@ return {
   priority = 1000, -- Load early.
   config = function()
     require('gruvbox').setup {
-      contrast = 'hard', -- Contrast level ('hard', 'medium', 'soft').
+      contrast = 'soft', -- Contrast level ('hard', 'medium', 'soft').
       transparent_mode = false, -- Use theme's background.
       overrides = { -- Custom highlight group overrides.
-        SignColumn = { bg = '#ff9900' }, -- Example: Orange background for SignColumn.
+        -- SignColumn = { bg = '#ff9900' }, -- Example: Orange background for SignColumn.
       },
       -- Other options (palette, terminal_colors, italics) use defaults.
     }
-    -- vim.cmd("colorscheme gruvbox") -- This theme is not set as default here.
+    --vim.cmd 'colorscheme gruvbox' -- This theme is not set as default here.
   end,
 }
