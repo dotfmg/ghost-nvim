@@ -9,6 +9,22 @@ return {
   config = function()
     require('bufferline').setup {
       options = {
+        offsets = { -- Offset for the buffer line.}
+          {
+            filetype = 'neo-tree', -- Offset for NvimTree.
+            text = '󰙅 Explorer', -- Text to display.
+            text_align = 'center', -- Align text to the left.
+            separator = true, -- Add a separator.
+            highlight = 'Directory', -- Use Normal highlight group.
+          },
+          {
+            filetype = 'copilot-chat', -- Usa el filetype correcto aquí
+            text = ' Copilot Chat',
+            text_align = 'center',
+            separator = true,
+            highlight = 'Directory', -- Use Normal highlight group.
+          },
+        },
         mode = 'buffers', -- Show open buffers (not Neovim tabs).
         themable = true, -- Allow themes to override highlights.
         numbers = 'none', -- No buffer numbers.
