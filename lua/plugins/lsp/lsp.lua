@@ -122,6 +122,7 @@ return {
           'pyright', -- Python
           'ruff', -- Python (Linter)
           'yamlls', -- YAML
+          'helm_ls', -- Helm
           'ts_ls', -- TypeScript and Javascript
           'bashls', -- Bash
           'sqls', -- SQL
@@ -144,6 +145,8 @@ return {
       require 'plugins.lsp.servers.pyright'
       require 'plugins.lsp.servers.ruff'
       require 'plugins.lsp.servers.yamlls'
+      require 'plugins.lsp.servers.helm_ls'
+      require 'plugins.lsp.servers.bash'
 
       -- Auto-format on save.
       local augroup = vim.api.nvim_create_augroup('LspFormatting', {})

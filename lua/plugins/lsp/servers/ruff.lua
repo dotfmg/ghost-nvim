@@ -1,6 +1,6 @@
 -- Configures Ruff (Python linter & formatter) as an LSP server (ruff-lsp).
 
-local lspconfig = require('lspconfig')
+local lspconfig = require 'lspconfig'
 
 lspconfig.ruff.setup {
   cmd = { 'ruff', 'server' }, -- Command to start ruff LSP.
@@ -13,13 +13,17 @@ lspconfig.ruff.setup {
       organizeImports = false, -- Disable ruff's import organization (use isort via none-ls).
       showSyntaxErrors = true,
       logFile = '~/ruff.log', -- Log file path.
-      logLevel = 'debug',     -- Log verbosity.
+      logLevel = 'debug', -- Log verbosity.
+      pylintMaxArgs = 7,
 
       -- Ruff lint/format rules (mirrors pyproject.toml structure).
       configuration = {
         lint = {
           select = { 'E', 'F', 'B', 'Q', 'I', 'PL', 'D', 'AIR', 'PL', 'ARG', 'ERA', 'FAST', 'DJ', 'ANN' },
-          ignore = { 'D102', 'D107', 'D100' }, -- Ignore specific docstring rules.
+          ignore = { 'I001', 'ANN204', 'D107', 'PLR0913', 'PLR204', 'D100' }, -- Ignore specific docstring rules.
+        },
+        pydocstyle = {
+          convention = 'google', -- Use Google style guide for docstrings.
         },
         format = {
           ['quote-style'] = 'double',

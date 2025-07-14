@@ -21,8 +21,10 @@ return {
         'sqlfluff',
         'prettier',
         'yamllint',
+        'yamlfmt',
         'shfmt',
         'shellcheck',
+        'npm-groovy-lint',
       },
       automatic_installation = true,
     }
@@ -42,11 +44,27 @@ return {
       diagnostics.sqruff.with { extra_args = { '--config', sqlfluff_config_path } },
       formatting.sqruff.with { extra_args = { '--config', sqlfluff_config_path } },
       formatting.prettier.with {
-        filetypes = { 'json', 'yaml', 'yml', 'markdown', 'html', 'javascript', 'typescript', 'dockerfile' },
+        filetypes = { 'json', 'markdown', 'html', 'javascript', 'typescript', 'dockerfile' },
       },
-      diagnostics.yamllint,
+      diagnostics.yamllint.with {
+        extra_args = {
+          '-d',
+          '{extends: default, rules: {line-length: {max: 150}, document-start: disable,document-end: disable, braces: disable}}',
+        },
+      },
       formatting.shfmt,
-      require 'none-ls-shellcheck.diagnostics',
+      formatting.yamlfmt,
+      require('none-ls-shellcheck.diagnostics').with {
+        condition = function(utils)
+          local filename = utils.bufname
+          if not filename then
+            return false
+          end
+          return not filename:match '%.env$' and not filename:match '%.env%.[^/]+$'
+        end,
+      },
+      diagnostics.npm_groovy_lint,
+      formatting.npm_groovy_lint,
     }
 
     -- Autocommand group for auto-formatting.
