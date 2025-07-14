@@ -47,3 +47,16 @@ else
     cache_enabled = 0,
   }
 end
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = {
+    '*/templates/*.yaml',
+    'values.yaml',
+    'helm.yaml',
+    '*.tpl',
+    '*.template',
+  },
+  callback = function()
+    vim.bo.filetype = 'helm'
+  end,
+})
