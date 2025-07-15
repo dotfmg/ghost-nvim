@@ -3,18 +3,17 @@
 
 return {
   'shaunsingh/nord.nvim',
-  lazy = true, -- Load lazily (not applied on startup by default).
+  lazy = false, -- Load on startup
+  priority = 1000,
   config = function()
-    -- Nord.nvim uses global Vim variables for configuration.
-    -- These must be set *before* applying the colorscheme.
-    vim.g.nord_contrast = true               -- Enable higher contrast.
-    vim.g.nord_borders = false               -- Disable borders for floating windows.
-    vim.g.nord_disable_background = false    -- Use Nord's background color (not transparent).
-    vim.g.nord_italic = false                -- Disable italics for comments, etc.
-    vim.g.nord_uniform_diff_background = true -- More uniform diff backgrounds.
-    vim.g.nord_bold = false                  -- Disable bold text.
-
-    -- To apply Nord: require("nord").set() or vim.cmd [[colorscheme nord]]
-    -- This theme is configured but not set as default here.
+    --vim.cmd.colorscheme 'nord'
+    -- Change background color (replace with your preferred color)
+    -- vim.cmd [[highlight Normal guibg=#25272d]]
+    -- -- Optionally, change other backgrounds for consistency:
+    -- vim.cmd [[highlight NormalNC guibg=#25272d]]
+    -- vim.cmd [[highlight SignColumn guibg=#25272d]]
+    -- vim.cmd [[highlight VertSplit guibg=#25272d]]
+    -- vim.cmd [[highlight StatusLine guibg=#25272d]]
+    -- vim.cmd [[highlight EndOfBuffer guibg=#25272d]]
   end,
 }

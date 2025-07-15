@@ -1,7 +1,9 @@
 return {
   {
     'dotfmg/ghost-theme',
-    lazy = false,
+    enable = false,
+    disable = true,
+    lazy = true,
     priority = 1000,
     config = function()
       require('ghost').setup()
