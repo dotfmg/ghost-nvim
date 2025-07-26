@@ -14,7 +14,7 @@ return {
       persist_mode = true, -- Persist terminal mode across toggles.
       auto_scroll = true, -- Auto-scroll on new output.
       direction = 'horizontal', -- Default direction (bottom split).
-      open_mapping = [[<C-_>]], -- Default open mapping (Ctrl+Underscore).
+      open_mapping = [[<C-/>]], -- Default open mapping (Ctrl+Underscore).
       autochdir = true, -- Terminals `cd` to current buffer's directory.
       winbar = { -- Winbar at top of terminal window.
         enabled = true,
@@ -27,7 +27,9 @@ return {
 
     local file_runners = {} -- Cache for file runner terminals (by filetype).
     local cmd_map = { -- Map filetype to interpreter command.
-      python = 'python3', lua = 'lua', sh = 'bash',
+      python = 'python3',
+      lua = 'lua',
+      sh = 'bash',
     }
 
     -- Runs current file in a dedicated floating terminal (reused by filetype).
@@ -44,9 +46,12 @@ return {
 
       if not term then -- Create new terminal if none exists for filetype.
         term = Terminal:new {
-          cmd = interp .. ' ' .. file, hidden = true, direction = 'float',
+          cmd = interp .. ' ' .. file,
+          hidden = true,
+          direction = 'float',
           close_on_exit = false, -- Keep terminal open after command exits.
-          auto_scroll = true, name = 'file_runner_' .. ft,
+          auto_scroll = true,
+          name = 'file_runner_' .. ft,
         }
         file_runners[ft] = term
       else
@@ -57,7 +62,8 @@ return {
 
     -- Keymaps for toggleterm.
     local keymap = vim.keymap.set
-    keymap('n', '<leader>tr', run_current_file, {noremap = true, silent = true, desc = 'Run current file'})
-    keymap('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', {noremap = true, silent = true, desc = 'Open floating terminal'})
+    keymap('n', '<leader>tr', run_current_file, { noremap = true, silent = true, desc = 'Run current file' })
+    keymap('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', { noremap = true, silent = true, desc = 'Open floating terminal' })
+    keymap('n', '<leader>tv', '<cmd>ToggleTerm direction=vertical size=80<CR>', { noremap = true, silent = true, desc = 'Open Vertical terminal' })
   end,
 }

@@ -23,6 +23,7 @@ return {
             String = { fg = colors.yellow }, -- String literals
             ['@Keyword.function'] = { fg = colors.red, bold = true }, -- Function keywords, e.g. "def"
             ['@String.documentation'] = { fg = '#556E53', italic = true }, -- Documentation strings
+            WinSeparator = { fg = colors.peach, bg = colors.bg, bold = true },
           }
         end,
       },

@@ -34,6 +34,8 @@ return {
       'tsx',
       'css',
       'html',
+      'terraform',
+      'hcl',
     },
     auto_install = true, -- Automatically install missing parsers.
 

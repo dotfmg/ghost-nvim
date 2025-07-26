@@ -126,6 +126,7 @@ return {
           'ts_ls', -- TypeScript and Javascript
           'bashls', -- Bash
           'sqls', -- SQL
+          'terraformls', -- Terraform
         },
         automatic_installation = true,
       }
@@ -138,6 +139,14 @@ return {
             on_attach = on_attach,
           }
         end,
+        -- Puedes agregar configuración específica para terraformls así:
+        -- ["terraformls"] = function()
+        --   require('lspconfig').terraformls.setup {
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     -- settings = {...}, -- puedes agregar settings aquí si necesitas algo especial
+        --   }
+        -- end,
       }
 
       -- Load server-specific configurations.

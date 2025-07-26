@@ -25,6 +25,7 @@ return {
         'shfmt',
         'shellcheck',
         'npm-groovy-lint',
+        'tfsec',
       },
       automatic_installation = true,
     }
@@ -65,6 +66,7 @@ return {
       },
       diagnostics.npm_groovy_lint,
       formatting.npm_groovy_lint,
+      diagnostics.tfsec,
     }
 
     -- Autocommand group for auto-formatting.

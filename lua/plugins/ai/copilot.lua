@@ -8,7 +8,7 @@ return {
     config = function()
       require('copilot').setup {
         suggestion = { -- Inline code suggestions.
-          enabled = false, -- Disabled here; likely triggered manually or by cmp.
+          enabled = true, -- Disabled here; likely triggered manually or by cmp.
           auto_trigger = false, -- No automatic suggestions.
           debounce = 75, -- Delay before suggesting (ms).
           keymap = { -- Keymaps for suggestions.

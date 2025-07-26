@@ -12,7 +12,7 @@ return {
       prompts = myprompts,
       window = {
         layout = 'vertical',
-        border = 'double',
+        border = 'single',
         title = 'Copilot Chat  ',
         width = 0.4,
         height = 1,
@@ -96,6 +96,7 @@ return {
     },
     config = function(_, opts)
       local chat = require 'CopilotChat'
+      local select = require 'CopilotChat.select'
       chat.setup(opts)
 
       -- Disable line numbers and relative numbers in CopilotChat window
@@ -108,8 +109,6 @@ return {
           vim.opt_local.foldcolumn = '0'
         end,
       })
-
-      local select = require 'CopilotChat.select'
 
       vim.api.nvim_create_user_command('CopilotChatCommitSmart', function()
         chat.ask('/Commit', { context = { 'git:staged' } })
